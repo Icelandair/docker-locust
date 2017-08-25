@@ -1,4 +1,4 @@
-FROM ubuntu:16.04.2-6
+FROM ubuntu:16.04
 
 #=======================
 # General Configuration
