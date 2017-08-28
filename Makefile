@@ -30,6 +30,10 @@ ifndef DOCKER_IMAGE
 	DOCKER_IMAGE := ${DOCKER_REGISTRY_HOST}/${PROJECT_NAME}/${COMPONENT}:${IMAGE_TAG}
 endif
 
+ifndef DOCKER_IMAGE_LATEST
+	DOCKER_IMAGE_LATEST := ${DOCKER_REGISTRY_HOST}/${PROJECT_NAME}/${COMPONENT}:latest
+endif
+
 all: docker-build docker-push deployment
 
 # docker
@@ -39,4 +43,5 @@ docker-build:
 	docker build -t ${DOCKER_IMAGE} .
 
 docker-push:
-	docker push ${DOCKER_IMAGE}
+	docker tag ${DOCKER_IMAGE} ${DOCKER_IMAGE_LATEST}
+	docker push ${DOCKER_IMAGE_LATEST}
