@@ -1,5 +1,5 @@
 ifndef COMPONENT
-	COMPONENT := micro-doctor
+	COMPONENT := docker-locust
 endif
 
 ifndef PROJECT_NAME
